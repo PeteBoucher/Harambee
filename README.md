@@ -5,7 +5,7 @@ Harambee
 
 The goal of this project was to launch a crowfunding site (like Kickstarter or IndieGoGo) targeted to raising funds for entrepreneurs in Africa and other developing regions of the world.
 
-It has been widely accepted that in the long term, the best way to aliviate poverty is to provide the tools and investment to entrepren
+It has been widely accepted that in the long term, the best way to aliviate poverty is to provide education, tools and investment to entrepreneurs. This creates jobs and sustainable growth in the region.
 
 The implementation would need to go far beyond this website, with volunteers on the ground to verify local projects and vet recipients.
 
