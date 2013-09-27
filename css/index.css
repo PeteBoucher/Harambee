@@ -1,0 +1,220 @@
+@charset "UTF-8";
+* { padding: 0; margin: 0; }
+p { margin-top: 1em; }
+body {
+ font-family: Arial, Helvetica, sans-serif;
+ font-size: 13px;
+}
+#wrapper { 
+ margin: 0 auto;
+ width: 922px;
+}
+#header {
+ color: #333;
+ width: 900px;
+ float: left;
+ padding: 10px;
+ border: 1px solid #ccc;
+ height: 100px;
+ margin: 10px 0px 5px 0px;
+ /*background: #BD9C8C;
+ background: #E7DBD5;*/
+ background:#FFF;
+ overflow:hidden;
+}
+#header h1 {
+	color:#E7DBD5;
+	font-size:80pt;
+	font-family:Arial, Helvetica, sans-serif;
+	padding-top:18pt;
+}
+#strapline {
+	font-size:12pt;
+	text-align:right;
+}
+
+#navigation
+{
+	float: left;
+	width: 900px;
+	margin: 0px 0px 5px 0px;
+	padding: 5px 10px;
+	background-image:url(../images/harambe-stripes-br.png);
+}
+#navigation ul
+{
+	float:right;
+	margin: 0;
+	padding: 0;
+}
+#navigation ul li
+{
+	list-style-type: none;
+	display: inline;
+}
+#navigation li a
+{
+	display: block;
+	float: left;
+	margin: 0 3px 0 3px;
+	border:1px #CCC solid;
+	padding: 5px 10px;
+	color:#000;
+	text-decoration: none;
+	border-right: 1px solid#fff;
+	background:#FFF;
+}
+#navigation li a:hover { background:#E7DBD5; }
+#navigation li a:active { margin: 2px 3px -2px 3px; }
+
+#leftcolumn { 
+ color: #333;
+ border: 1px solid #ccc;
+ margin: 0px 5px 5px 0px;
+ padding: 10px;
+ width: 678px;
+ float: left;
+ background: #F2F2E6;
+}
+#rightcolumn { 
+ float: right;
+ color: #333;
+ border: 1px solid #ccc;
+ margin: 0px 0px 5px 0px;
+ padding: 10px;
+ width: 195px;
+ display: inline;
+ background: #E7DBD5;
+}
+#footer { 
+ width: 900px;
+ clear: both;
+ color: #333;
+ text-align:right;
+ border: 1px solid #ccc;
+ background: #BD9C8C;
+ margin: 0px 0px 10px 0px;
+ padding: 10px;
+}
+
+#leftcolumn .box {
+	border-top:1px #666 solid;
+	border-bottom:1px #666 solid;
+	margin-bottom: 10px;
+	padding: 5px;
+}
+#leftcolumn .feature {
+	display:inline-block;
+	text-align:center;
+	padding:0;
+	width:219px;
+	/*height:500px;*/
+}
+#leftcolumn .feature .projectPic {
+	margin:0;
+}
+#leftcolumn #featured1 {
+}
+#leftcolumn #featured2 {
+	/*float:right;*/
+}
+#leftcolumn .feature h2 {
+	padding:0.3em 0 0 0;
+	margin:0;
+	display:block;
+}
+#leftcolumn .feature h3 {
+	padding:0 0 0.5em 0;
+	margin:0;
+	display:block;
+}
+#leftcolumn .box ul#officers {
+	margin:3pt;
+	padding-left:20pt;
+}
+#leftcolumn .box ul#officers li {
+	size:auto;
+	display: inline;
+	border:1px #666 solid;
+	border-top:none;
+	margin:1pt;
+	padding: 2pt;
+}
+#leftcolumn .box .formField {
+	display:block;
+	width:100%;
+	margin: 5px 0;
+	padding: 4px;
+	background: #E3DFD3;
+}
+#leftcolumn .box label {
+	display:inline-block;
+	width:30%;
+	margin: 5px 0;
+	border-bottom:1px #999 dotted;
+}
+input {
+	height:2em;
+}
+#officers a, #officers a:visited {
+	width:9em;
+	height:64px;
+	text-decoration:none;
+	text-align:center;
+}
+#rightcolumn .box {
+	border-top:1px #666 solid;
+	margin-bottom: 10px;
+	padding: 5px;
+}
+#rightcolumn .world-map {
+	background-image:url(../images/maps/world-grey.gif);
+	width:195px;
+	height:86px;
+}
+#rightcolumn .world-map #overlay {
+	background-image:url(../images/maps/world-cross-hair.gif);
+	background-repeat:repeat;
+	width:195px;
+	height:86px;
+}
+#leftcolumn .heading {
+	margin-top: 20pt;
+	background-image:url(../images/harambe-stripes-br.png);
+	background-repeat:repeat-x;
+}
+#leftcolumn h1,#leftcolumn h2,#leftcolumn h3,#leftcolumn h4,#leftcolumn h5 {
+	display: inline;
+	margin: 0 10pt;
+	padding: 0 10pt;
+	background: #F2F2E6;
+}
+#leftcolumn .totaliser_h {
+	display: inline;
+	vertical-align: middle;
+}
+#rightcolumn .totaliser_v {
+}
+#rightcolumn .button {
+	color:#FFF;
+	size:12pt;
+	font-weight:bold;
+	text-align:center;
+	border:2px #F00 solid;
+	border-bottom:2pt #900 solid;
+	border-right:2.5pt #900 solid;
+	background:#F33;
+}
+#rightcolumn .button a {
+	padding:auto;
+}
+#rightcolumn .button, #rightcolumn .button a {
+	color:#FFF;
+	size:12pt;
+	font-weight:bold;
+	text-align:center;
+	text-decoration:none;
+	height:12pt;
+	margin: 4pt;
+	padding:4pt;
+}
