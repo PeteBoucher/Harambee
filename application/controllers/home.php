@@ -24,18 +24,24 @@ class Home extends CI_Controller {
 		//Debug: $this->output->enable_profiler(TRUE);
 		
 		//Retrieve featured projects
+
+		// All this moved to the Project_model
 		/* $project = $this->db->query(
 									'SELECT * FROM Project JOIN Profile
 									 	WHERE Featured = ? AND ProfileType = ?', 
 									 array(1, 'proj')
 									 ); */
-		$this->db->select('Project.id, OrgId, Category, Name, City, Country, Avatar');
-		$this->db->from('Project');
-		$this->db->join('Profile', 'Project.ProfileId=Profile.id', 'inner');
-		//$this->db->where('FeaturedProject', 1); 
-		$this->db->where('ProfileType', 'proj');
-		$this->db->limit(3);
-		$projectList = $this->db->get();
+		// $this->db->select('Project.id, OrgId, Category, Name, City, Country, Avatar');
+		// $this->db->from('Project');
+		// $this->db->join('Profile', 'Project.ProfileId=Profile.id', 'inner');
+		// //$this->db->where('FeaturedProject', 1); 
+		// $this->db->where('ProfileType', 'proj');
+		// $this->db->limit(3);
+		// $projectList = $this->db->get();
+
+		$this->load->model('Project_model', 'project');
+		$projectList = $this->project->get_featured();
+
 		foreach ($projectList->result() as $row)
 		{
 			$data['project'][$row->id] = array(
