@@ -1,8 +1,3 @@
-AuthType Basic
-AuthName "JustCauseWeCan"
-AuthUserFile "/home/europ4/.htpasswds/public_html/justcausewecan.com/passwd"
-require valid-user
-
 RewriteEngine on
 RewriteCond $1 !^(index\.php|images|css|js|sitemap\.xml|robots\.txt)
 RewriteRule ^(.*)$ /index.php/$1 [L]

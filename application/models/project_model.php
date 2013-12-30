@@ -11,10 +11,11 @@ class Project_model extends CI_Model {
     $this->db->from('Project');
     $this->db->join('Profile', 
       'Project.ProfileId = Profile.id', 'inner');
-    //$this->db->where('FeaturedProject', 1); 
+    //$this->db->where('FeaturedProject'); 
     $this->db->where('ProfileType', 'proj');
     $this->db->limit(3);
 
     return $this->db->get();
   }
+
 }
