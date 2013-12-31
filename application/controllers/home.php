@@ -181,6 +181,14 @@ class Home extends CI_Controller {
 		}
 	}
 
+	function tests() {
+		$this->load->library('unit_test');
+
+		$catColour = $this->_categoryColour('Health');
+		echo $this->unit->run($catColour, 'faa', 'Colour for Health category should be pink');
+
+	}
+
 }
 
 /* End of file org.php */
