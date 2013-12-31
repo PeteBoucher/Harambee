@@ -116,19 +116,23 @@ class Home extends CI_Controller {
 	 */
 	function _orgResponsable($projID)
 	{
-		$organisation = $this->db->query(
-									'SELECT * 
-										FROM Project 
-										  INNER JOIN (Organisation INNER JOIN Profile 
-											ON Organisation.ProfileId=Profile.id)
-										  ON Project.OrgId=Organisation.id
-										WHERE Project.id = ?
-										  AND ProfileType = ?
-										  AND Organisation.Status = ?
-										LIMIT 0 , 1', 
-							//Change LIMIT if/when we decide to allow joint projects between multiple organisations
-									 array($projID, 'org', 'active')
-									 );
+		$this->load->model('Organisation_model', 'org');
+		// All this moved to the Organisation_model
+		// $organisation = $this->db->query(
+		// 							'SELECT * 
+		// 								FROM Project 
+		// 								  INNER JOIN (Organisation INNER JOIN Profile 
+		// 									ON Organisation.ProfileId=Profile.id)
+		// 								  ON Project.OrgId=Organisation.id
+		// 								WHERE Project.id = ?
+		// 								  AND ProfileType = ?
+		// 								  AND Organisation.Status = ?
+		// 								LIMIT 0 , 1', 
+		// 					//Change LIMIT if/when we decide to allow joint projects between multiple organisations
+		// 							 array($projID, 'org', 'active')
+		// 							 );
+		$organisation = $this->org->get_by_project($projID);
+
 		if ($organisation->num_rows() > 0)
 		{
 			foreach ($organisation->result() as $row) 

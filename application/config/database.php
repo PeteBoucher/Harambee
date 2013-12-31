@@ -59,7 +59,7 @@ $db['default']['stricton'] = FALSE;
 
 $db['dev']['hostname'] = 'localhost';
 $db['dev']['username'] = 'harambee_dev';
-$db['dev']['password'] = '1234';
+$db['dev']['password'] = 'NG9deMq3D8CbWV4n';
 $db['dev']['database'] = 'harambee';
 $db['dev']['dbdriver'] = 'mysql';
 $db['dev']['dbprefix'] = '';
