@@ -48,12 +48,12 @@ class Home extends CI_Controller {
 				'projName' => $row->Name,
 				'city' => $row->City,
 				'country' => $row->Country,
-			//$data['description'] = $row->Description;
+				//$data['description'] = $row->Description;
 				'projPicURL' => $row->Avatar,
-				'bgCol' => $this->_categoryColour($row->Category)
-				/* 'orgID' => $row->OrgID,
-				'orgName' => $row->OrgID, */
-				);
+				'bgCol' => $this->_categoryColour($row->Category),
+				'orgID' => $row->OrgId,
+				'orgName' => $row->OrgId
+			);
 			
 			//Retrieve parent Organsation details
 			/* $project = new Project; */
