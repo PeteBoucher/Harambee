@@ -5,19 +5,17 @@ class Organisation extends CI_Controller {
 	public function index()
 	{
 		
+		$this->losd->model('organisation_model', 'org');
 		//List organisations, page by 30
-		/* SELECT OrgID, Name, Surname, Email, Address, City, Country, Description, Avatar 
-			FROM Organisation JOIN Profile
-				ON Organisation.ProfileID = Profile.ProfileID
-			WHERE Status = 'active' 
-			LIMIT 30 */
 		
-		$this->db->select('id, Name, Surname, City, Country, Avatar');
-		$this->db->from('Organisation');
-		$this->db->join('Profile', 'Organisation.ProfileID = Profile.id');
-		$this->db->where('Status', 'active');
-		$this->db->limit('0, 30'); //TODO add paging function
-		$orgList = $this->db->get();
+			//Moveed all this to Organisation_model
+		// $this->db->select('id, Name, Surname, City, Country, Avatar');
+		// $this->db->from('Organisation');
+		// $this->db->join('Profile', 'Organisation.ProfileID = Profile.id');
+		// $this->db->where('Status', 'active');
+		// $this->db->limit('0, 30'); //TODO add paging function
+		
+		$orgList = $this->org->all();
 		
 		//Page skeleton
 		echo '<h1>List of member organisations</h1>';
@@ -42,14 +40,14 @@ class Organisation extends CI_Controller {
 	
 	public function overview($orgID)
 	{
-		
+		$this->load->model('organisation_model', 'org');
 		//Organisation details and projects, page by 30
 		
-		$this->db->select('Organisation.id, Name, Surname, Email, Address, City, Country, Description, Avatar');
-		$this->db->from('Organisation');
-		$this->db->join('Profile', 'Organisation.ProfileId = Profile.id');
-		$this->db->where(array('Status' => 'active', 'Organisation.id' => $orgID));
-		$org = $this->db->get();
+		// $this->db->select('Organisation.id, Name, Surname, Email, Address, City, Country, Description, Avatar');
+		// $this->db->from('Organisation');
+		// $this->db->join('Profile', 'Organisation.ProfileId = Profile.id');
+		// $this->db->where(array('Status' => 'active', 'Organisation.id' => $orgID));
+		$org = $this->org->get($orgID);
 
 /* 		echo '<h1>Organisation overview and profile</h1>';
 		echo '<h2>Skeleton Page (alpha)</h2>';
@@ -57,7 +55,7 @@ class Organisation extends CI_Controller {
 		if ($org->num_rows() > 0)
 		{
 			$row = $org->row();
-			$data['orgID'] = $row->id;
+			$data['orgID'] = $row->OrgID;
 			$data['orgName'] = $row->Name;
 			$data['orgLongName'] = $row->Surname;
 			$data['orgAddress'] = $row->Address;
@@ -85,18 +83,15 @@ class Organisation extends CI_Controller {
 	
 	function _projects($orgID)
 	{
-		
+		$this->load->model('project_model', 'project');
 		//List of projects proposed by organisation X, page by 30
-		/* SELECT Name, City, Avatar 
-			FROM `Project` JOIN Profile 
-				ON Project.ProfileID=Profile.ProfileID 
-			WHERE OrgID = 1 */
-		
-		$this->db->select('id, Name, City, Country, Avatar');
-		$this->db->from('Project');
-		$this->db->join('Profile', 'Project.ProfileID = Profile.id');
-		$this->db->where(array('Organisation.id' => $orgID));
-		$projectList = $this->db->get();
+		// Moved to Project_model		
+		// $this->db->select('id, Name, City, Country, Avatar');
+		// $this->db->from('Project');
+		// $this->db->join('Profile', 'Project.ProfileID = Profile.id');
+		// $this->db->where(array('Organisation.id' => $orgID));
+		// $projectList = $this->db->get();
+		$projectList = $this->project->get_by_org($orgID);
 
 		//$this->load->view('includes/doctype-head', $data);
 		//$this->load->view('includes/header-navbar', $data);

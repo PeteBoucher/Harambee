@@ -29,13 +29,16 @@ class Org extends CI_Controller {
 	
 	public function goal($goalID)
 	{
+
+		$this->load->model('goal_model', 'goal');
+		$goal = $this->goal->get($goalID);
+		// Moved to Goal_model		
+		// $this->db->from('Profile');
+		// $this->db->join('Goal', 'Profile.ProfileID = Goal.ProfileID');
+		// $this->db->where('GoalID', $goalID))
+		// $query = $this->db->select('GoalID, Name');
 		
-		$this->db->from('Profile');
-		$this->db->join('Goal', 'Profile.ProfileID = Goal.ProfileID');
-		$this->db->where('GoalID', $goalID))
-		$query = $this->db->select('GoalID, Name');
-		
-		foreach ($query->result() as $row)
+		foreach ($goal->result() as $row)
 		{
 			echo $row->GoalID;
 			echo $row->Name;
