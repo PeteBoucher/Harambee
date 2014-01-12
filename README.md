@@ -16,14 +16,21 @@ If anyone would like to take this cause up I can be contacted at pete@europeaxes
 Installation
 ------------
 
- 1. I use MAMP to develop locally so after cloning the repo on your development machine, just set the Apache document root to your Harambee folder.
+ 1. I use [MAMP 2.2](http://www.mamp.info/en/downloads/) to develop locally so after cloning the repo on your development machine and installing MAMP, just set the Apache document root in MAMP Preferences to your Harambee folder and start the servers.
 
- 2. Go to your MAMP phpMyAdmin page navigate to the Users tab and create a new MySql user 'harambee', set a password and select the 'Create database with same name..' radio button.
+ 2. Go to your MAMP phpMyAdmin page http://localhost:8080/MAMP/ navigate to the 'Users' tab and create a new MySql user 'harambee', set a password and select the 'Create database with same name..' radio button.
 
  3. Navigate to the 'Databases' tab, click on harambee in the list of local DBs and navigate to the 'Import' tab.
 
  4. Select the sql file from the repo '_Resources/harambee.sql' and click Go.
 
- 5. Edit config/database.php, set the active_group to 'dev' and set the password you chose: $db['dev']['password']
+ 5. Edit config/database.php, set the active_group to 'dev' and set the password you chose:
 
- 6. That's it
+```php
+$db['dev']['hostname'] = 'localhost';
+$db['dev']['username'] = 'harambee';
+$db['dev']['password'] = '';
+$db['dev']['database'] = 'harambee';
+```
+
+ 6. That's it, navigate to http://localhost:8080/ in your browser
