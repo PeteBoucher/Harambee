@@ -1,6 +1,13 @@
 <?php
 class Project_model extends CI_Model {
 
+  var $projectID = '';
+  var $orgID = '';
+  var $profileID = '';
+  var $category = '';
+  var $projectLastUpdate = '';
+  var $status = '';
+
   public function __construct()
   {
     $this->load->database();
@@ -8,7 +15,7 @@ class Project_model extends CI_Model {
 
   public function get_by_org($orgID)
   {
-    $this->db->select('ProjectID, Name, City, Country, Avatar');
+    $this->db->select('Project.ProjectID, City, Country, Avatar');
     $this->db->from('Project');
     $this->db->join('Profile', 'Project.ProfileID = Profile.ProfileID');
     $this->db->join('Organisation', 'Project.OrgID = Organisation.OrgID');
@@ -17,13 +24,15 @@ class Project_model extends CI_Model {
     return $this->db->get();
   }
 
-  public function get_featured() 
+  public function get_featured()
   {
-    $this->db->select('ProjectId AS id, OrgId, Category, Name, City, Country, Avatar');
+    $this->db->select('Project.ProjectID AS id, OrgId, Category, Profile.Name, City, Country, Avatar');
     $this->db->from('Project');
-    $this->db->join('Profile', 
-      'Project.ProfileId = Profile.ProfileId', 'inner');
-    //$this->db->where('FeaturedProject'); 
+    $this->db->join('Profile',
+      'Project.ProfileID = Profile.ProfileID', 'inner');
+    $this->db->join('Goal',
+      'Project.ProjectID = Goal.ProjectID', 'inner');
+    // $this->db->where('Featured');
     $this->db->where('ProfileType', 'proj');
     $this->db->limit(3);
 

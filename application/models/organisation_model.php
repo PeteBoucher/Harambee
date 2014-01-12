@@ -1,12 +1,17 @@
 <?php
 class Organisation_model extends CI_Model {
 
+  var $orgID ='';
+  var $profileID = '';
+  var $orgType = '';
+  var $status = '';
+
   public function __construct()
   {
     $this->load->database();
   }
 
-  public function all($limit = 30) 
+  public function all($limit = 30)
   {
     $this->db->select('OrgID, Name, Surname, City, Country, Avatar');
     $this->db->from('Organisation');
@@ -28,8 +33,8 @@ class Organisation_model extends CI_Model {
   public function get_by_project($projectID)
   {
     $whereClause = array(
-      'ProjectId' => $projectID, 
-      'ProfileType' => 'org', 
+      'ProjectId' => $projectID,
+      'ProfileType' => 'org',
       'Organisation.Status' => 'active'
     );
     $this->db->from('Organisation');
