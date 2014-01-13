@@ -5,23 +5,23 @@ class Donation_model extends CI_Model {
 	var $donorID = '';
 	var $paymentID = '';
 	var $goalID = '';
-	var $ammout = '';
+	var $amount = '';
 	var $currency = '';
 	var $dateCreated = '';
 	var $dateDisbursed = ''; // date of payment to project organise
 
-	privat vat $is_saved = FALSE;
+	private $is_saved = FALSE;
 
 	public function __construct()
 	{
 		$this->load->database();
 	}
 
-	public function new($donor, $goal, $ammout, $currency)
+	public function create($donor, $goal, $amount, $currency)
 	{
 		$this->donorID = $donor;
 		$this->goalID = $goal;
-		$this->ammout = $ammout;
+		$this->amount = $amount;
 		$this->currency = $currency;
 
 		return $this;
@@ -31,12 +31,14 @@ class Donation_model extends CI_Model {
 	{
 		if ($id){
 			//TODO make the result an instance of this model
-			return = $this->db->get_where('donation',
-				array('DonationID' => , $id));
+			$query = $this->db->get_where('donation',
+				array('DonationID' => $id));
 		} else {
 			//TODO make the result an array os instances of this model
-			return = $this->db->get('donation');
+			$query = $this->db->get('donation');
 		}
+
+		return $query->result();
 	}
 
 	function save()
@@ -61,8 +63,7 @@ class Donation_model extends CI_Model {
 
 	public function get_by_donor(){}
 
-
-
-}
 	/* End of file donation_model.php */
 	/* Location: ./application/models/donation_model.php */
+
+}
